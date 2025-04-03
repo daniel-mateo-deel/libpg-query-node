@@ -15,11 +15,11 @@ makeTarget=build
 cd "$tmpDir"
 
 # Clone the selected branch of the libpg_query Git repo
-git clone -b $branch --single-branch https://github.com/pganalyze/libpg_query.git
+git clone -b $branch --single-branch git@github.com:daniel-mateo-deel/libpg_query.git
 cd libpg_query
 
 # Checkout the desired commit
-git checkout $commit
+# git checkout $commit
 
 # needed if being invoked from within gyp
 unset MAKEFLAGS

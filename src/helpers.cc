@@ -27,6 +27,19 @@ Napi::String QueryParseResult(Napi::Env env, const PgQueryParseResult& result)
     return returnVal;
 }
 
+Napi::String DeparseResult(Napi::Env env, const PgQueryDeparseResult& result)
+{
+    if (result.error) {
+        auto throwVal = CreateError(env, *result.error);
+        pg_query_free_deparse_result(result);
+        throw throwVal;
+    }
+
+    auto returnVal = Napi::String::New(env, result.query);
+    pg_query_free_deparse_result(result);
+    return returnVal;
+}
+
 Napi::String PlPgSQLParseResult(Napi::Env env, const PgQueryPlpgsqlParseResult& result)
 {
     if (result.error) {
@@ -53,3 +66,26 @@ Napi::String FingerprintResult(Napi::Env env, const PgQueryFingerprintResult & r
   pg_query_free_fingerprint_result(result);
   return returnVal;
 }
+
+Napi::Object NormalizeResult(Napi::Env env, const PgQueryNormalizeResult & result)
+{
+  if (result.error) {
+    auto throwVal = CreateError(env, *result.error);
+    pg_query_free_normalize_result(result);
+    throw throwVal;
+  }
+
+  Napi::Object returnVal = Napi::Object::New(env);
+  
+  returnVal.Set("normalized_query", Napi::String::New(env, result.normalized_query));
+
+  Napi::Array constants = Napi::Array::New(env, result.norm_args_count);
+  for (int i = 0; i < result.norm_args_count; i++) {
+    constants.Set(i, Napi::String::New(env, result.norm_args[i]));
+  }
+  returnVal.Set("args", constants);
+
+  pg_query_free_normalize_result(result);
+  return returnVal;
+}
+

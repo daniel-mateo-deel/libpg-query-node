@@ -15,6 +15,16 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   );
 
   exports.Set(
+    Napi::String::New(env, "deparseSync"),
+    Napi::Function::New(env, DeparseSync)
+  );
+
+  exports.Set(
+    Napi::String::New(env, "deparseAsync"),
+    Napi::Function::New(env, DeparseAsync)
+  );
+
+  exports.Set(
     Napi::String::New(env, "parsePlPgSQLSync"),
     Napi::Function::New(env, ParsePlPgSQLSync)
   );
@@ -32,6 +42,11 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set(
       Napi::String::New(env, "fingerprintAsync"),
       Napi::Function::New(env, FingerprintAsync)
+  );
+
+  exports.Set(
+     Napi::String::New(env, "normalizeSync"),
+     Napi::Function::New(env, NormalizeSync)
   );
 
   return exports;
