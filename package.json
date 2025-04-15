@@ -34,7 +34,7 @@
     "protogen": "node ./script/protogen.js 16-latest",
     "clean": "rimraf build",
     "configure": "node-pre-gyp configure",
-    "install": "node-pre-gyp install --fallback-to-build --loglevel verbose",
+    "install": "node-pre-gyp install --loglevel verbose",
     "rebuild": "node-pre-gyp rebuild --loglevel verbose",
     "make:wasm": "docker run --rm -v $(pwd):/src -u $(id -u):$(id -g) emscripten/emsdk emmake make",
     "build:wasm": "yarn make:wasm build",
@@ -83,6 +83,6 @@
     "module_path": "./build/Release/",
     "host": "https://github.com/daniel-mateo-deel/libpg-query-node/releases/download/",
     "remote_path": "build/",
-    "package_name": "queryparser.tar.gz"
+    "package_name": "build.tar.gz"
   }
 }
