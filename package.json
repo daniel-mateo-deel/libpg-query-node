@@ -81,10 +81,8 @@
   "binary": {
     "module_name": "queryparser",
     "module_path": "./build/Release/",
-    "host": "https://gnbyoxcowpfpalflhptv.supabase.co/storage/v1/s3",
-    "remote_path": "./libpg-query-node/",
-    "bucket": "public-artifacts",
-    "region": "us-east-1",
-    "s3ForcePathStyle": true
+    "host": "https://github.com/daniel-mateo-deel/libpg-query-node/releases/download/",
+    "remote_path": "build/",
+    "package_name": "queryparser.node"
   }
 }
