@@ -83,6 +83,6 @@
     "module_path": "./build/Release/",
     "host": "https://github.com/daniel-mateo-deel/libpg-query-node/releases/download/",
     "remote_path": "build/",
-    "package_name": "queryparser.node"
+    "package_name": "queryparser.tar.gz"
   }
 }
