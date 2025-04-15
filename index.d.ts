@@ -7,6 +7,5 @@ export function deparse(parseTree: any): Promise<string>;
 export function deparseSync(parseTree: any): any;
 export function fingerprint(sql: string): Promise<string>;
 export function fingerprintSync(sql: string): string;
-export function normalizeSync(sql: string): string;
 export * from '@pgsql/types';
 
