@@ -34,10 +34,3 @@ Napi::String FingerprintSync(const Napi::CallbackInfo& info) {
 
   return FingerprintResult(info.Env(), result);
 }
-
-Napi::Object NormalizeSync(const Napi::CallbackInfo& info) {
-  std::string query = info[0].As<Napi::String>();
-  PgQueryNormalizeResult result = pg_query_normalize(query.c_str());
-
-  return NormalizeResult(info.Env(), result);
-}

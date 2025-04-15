@@ -44,10 +44,6 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
       Napi::Function::New(env, FingerprintAsync)
   );
 
-  exports.Set(
-     Napi::String::New(env, "normalizeSync"),
-     Napi::Function::New(env, NormalizeSync)
-  );
 
   return exports;
 }

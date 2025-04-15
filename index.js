@@ -1,7 +1,6 @@
 const PgQuery = require('./build/Release/queryparser');
 const { pg_query } = require('./proto');
 
-
 module.exports = {
   parseQuery(query) {
     return new Promise((resolve, reject) => {
@@ -54,8 +53,4 @@ module.exports = {
   fingerprintSync(query) {
     return PgQuery.fingerprintSync(query);
   },
-
-  normalizeSync(query) {
-    return PgQuery.normalizeSync(query);
-  }
 };
